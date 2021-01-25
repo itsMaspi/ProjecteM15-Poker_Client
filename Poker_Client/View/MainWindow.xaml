@@ -1,0 +1,27 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Poker_Client"
+        xmlns:ViewModel="clr-namespace:Poker_Client.ViewModel" x:Class="Poker_Client.View.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <ViewModel:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Label Content="Nom:" HorizontalAlignment="Left" Margin="43,24,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="87,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Text="{Binding Nom}"/>
+        <Button Content="{Binding BtnName}" HorizontalAlignment="Left" Margin="287,23,0,0" VerticalAlignment="Top" Width="121" Height="28" Command="{Binding BtnConnectCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource self}}"/>
+        <Button HorizontalAlignment="Left" Margin="427,24,0,0" VerticalAlignment="Top" Width="27" Height="27" Background="{Binding BtnColor}" IsTabStop="False"/>
+        <ListBox HorizontalAlignment="Left" Margin="43,73,0,69" Width="527" ItemsSource="{Binding ChatList}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="43,0,0,27" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="424" Text="{Binding Message}" IsEnabled="{Binding Enabled}"/>
+        <Button Content="Enviar" HorizontalAlignment="Left" Margin="480,0,0,27" VerticalAlignment="Bottom" Width="90" Height="23" Command="{Binding BtnSend}" IsEnabled="{Binding Enabled}"/>
+        <DataGrid Margin="588,73,27,69" ItemsSource="{Binding Usuaris}" AutoGenerateColumns="False" SelectedItem="{Binding UsrSendList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Mode=OneWay}" ClipboardContentBinding="{x:Null}" Width="111" Header="Usuaris connectats" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
