@@ -160,7 +160,7 @@ namespace Poker_Client.ViewModel
 			socket = new ClientWebSocket();
 			ChatList.Add("Connectant...");
 
-			string wsUri = string.Format("wss://localhost:44327/api/websocket?nom={0}", nom);
+			string wsUri = string.Format("wss://localhost:44385/api/websocket?nom={0}", nom);
 			await socket.ConnectAsync(new Uri(wsUri), cts.Token);
 			//ChatList.Add(socket.State.ToString());
 
