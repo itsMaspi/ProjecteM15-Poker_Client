@@ -15,6 +15,20 @@ namespace Poker_Client.ViewModel
 	public class MainWindowViewModel : INotifyPropertyChanged
 	{
 		#region Propietats
+		private string _testCarta;
+		public string TestCarta
+		{
+			get
+			{
+				return _testCarta;
+			}
+			set
+			{
+				_testCarta = value;
+				NotifyPropertyChanged();
+			}
+		}
+
 		private string _nom;
 		public string Nom
 		{
@@ -120,6 +134,7 @@ namespace Poker_Client.ViewModel
 
 		public MainWindowViewModel()
 		{
+			TestCarta = "\U0001F0A0";
 			BtnName = "Connectar";
 			BtnColor = "Red";
 			Enabled = false;
