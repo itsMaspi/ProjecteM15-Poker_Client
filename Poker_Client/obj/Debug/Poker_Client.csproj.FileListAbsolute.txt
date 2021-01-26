@@ -53,3 +53,31 @@ D:\Coding\VSProjects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Clien
 D:\Coding\VSProjects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csproj.CopyComplete
 D:\Coding\VSProjects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.exe
 D:\Coding\VSProjects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.pdb
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\Poker_Client.exe.config
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\Poker_Client.exe
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\Poker_Client.pdb
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\CommonServiceLocator.dll
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csprojAssemblyReference.cache
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\View\MainWindow.g.cs
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\App.g.cs
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client_MarkupCompile.cache
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client_MarkupCompile.lref
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\View\MainWindow.baml
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.g.resources
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.Properties.Resources.resources
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csproj.GenerateResource.cache
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csproj.CoreCompileInputs.cache
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csproj.CopyComplete
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.exe
+C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.pdb

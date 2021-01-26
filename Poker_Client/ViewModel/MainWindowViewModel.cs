@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Poker_Client.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,29 @@ namespace Poker_Client.ViewModel
 			}
 			set
 			{
+				if (Cards.RedCards.Contains(value))
+				{
+					ColorCarta = "Red";
+				}
+				else
+				{
+					ColorCarta = "Black";
+				}
 				_testCarta = value;
+				NotifyPropertyChanged();
+			}
+		}
+
+		private string _colorCarta = "Black";
+		public string ColorCarta
+		{
+			get
+			{
+				return _colorCarta;
+			}
+			set
+			{
+				_colorCarta = value;
 				NotifyPropertyChanged();
 			}
 		}
@@ -134,7 +157,7 @@ namespace Poker_Client.ViewModel
 
 		public MainWindowViewModel()
 		{
-			TestCarta = "\U0001F0A0";
+			TestCarta = Cards.Cover;
 			BtnName = "Connectar";
 			BtnColor = "Red";
 			Enabled = false;
@@ -159,6 +182,7 @@ namespace Poker_Client.ViewModel
 				ChatList.Add("Desconnectat!"); Console.WriteLine("Desconnectat");
 				BtnName = "Connectar";
 				BtnColor = "Red";
+				TestCarta = Cards.Cover;
 				Enabled = false;
 				Usuaris = new ObservableCollection<string>();
 				return;
@@ -191,10 +215,11 @@ namespace Poker_Client.ViewModel
 						string rcvMsg = Encoding.UTF8.GetString(msgBytes);
 						if (rcvMsg != null)
 						{
-							if (rcvMsg.StartsWith("/supersecret "))
+							
+							if (rcvMsg.StartsWith("/online "))
 							{
 								Console.WriteLine(rcvMsg);
-								rcvMsg = rcvMsg.Substring(13);
+								rcvMsg = rcvMsg.Substring(8);
 								List<string> users = rcvMsg.Split(',').ToList();
 								App.Current.Dispatcher.Invoke((System.Action)delegate
 								{
@@ -205,14 +230,17 @@ namespace Poker_Client.ViewModel
 									}
 								});
 							}
+							else if (rcvMsg.StartsWith("/card "))
+							{
+								rcvMsg = rcvMsg.Substring(6);
+								RebreCarta(rcvMsg);
+							}
 							else
 							{
 								Console.WriteLine(rcvMsg);
-								App.Current.Dispatcher.Invoke((System.Action)delegate
-								{
-									ChatList.Add(rcvMsg);
+								RebreMissatge(rcvMsg);
+								
 
-								});
 							}
 						}
 					}
@@ -239,6 +267,19 @@ namespace Poker_Client.ViewModel
 				}
 				Message = "";
 			}
+		}
+
+		private void RebreMissatge(string missatge)
+		{
+			App.Current.Dispatcher.Invoke((System.Action)delegate
+			{
+				ChatList.Add(missatge);
+			});
+		}
+
+		private void RebreCarta(string carta)
+		{
+			TestCarta = carta;
 		}
 
 
