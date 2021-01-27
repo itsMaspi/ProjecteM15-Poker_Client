@@ -230,9 +230,9 @@ namespace Poker_Client.ViewModel
 									}
 								});
 							}
-							else if (rcvMsg.StartsWith("/card "))
+							else if (rcvMsg.StartsWith("/showcard "))
 							{
-								rcvMsg = rcvMsg.Substring(6);
+								rcvMsg = rcvMsg.Substring(10);
 								RebreCarta(rcvMsg);
 							}
 							else
