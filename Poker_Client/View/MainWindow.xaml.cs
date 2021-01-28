@@ -24,5 +24,6 @@ namespace Poker_Client.View
 		{
 			InitializeComponent();
 		}
-	}
+
+    }
 }
