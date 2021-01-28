@@ -15,13 +15,15 @@ namespace Poker_Client.ViewModel
 {
 	public class MainWindowViewModel : INotifyPropertyChanged
 	{
+		private int idxCarta = 0;
+
 		#region Propietats
-		private string _testCarta;
-		public string TestCarta
+		private string _carta;
+		public string Carta
 		{
 			get
 			{
-				return _testCarta;
+				return _carta;
 			}
 			set
 			{
@@ -33,17 +35,17 @@ namespace Poker_Client.ViewModel
 				{
 					ColorCarta = "Black";
 				}
-				_testCarta = value;
+				_carta = value;
 				NotifyPropertyChanged();
 			}
 		}
 
-		private string _testCarta1;
-		public string TestCarta1
+		private string _carta1;
+		public string Carta1
 		{
 			get
 			{
-				return _testCarta1;
+				return _carta1;
 			}
 			set
 			{
@@ -55,17 +57,17 @@ namespace Poker_Client.ViewModel
 				{
 					ColorCarta = "Black";
 				}
-				_testCarta1 = value;
+				_carta1 = value;
 				NotifyPropertyChanged();
 			}
 		}
 
-		private string _testCarta2;
-		public string TestCarta2
+		private string _carta2;
+		public string Carta2
 		{
 			get
 			{
-				return _testCarta2;
+				return _carta2;
 			}
 			set
 			{
@@ -77,17 +79,17 @@ namespace Poker_Client.ViewModel
 				{
 					ColorCarta = "Black";
 				}
-				_testCarta2 = value;
+				_carta2 = value;
 				NotifyPropertyChanged();
 			}
 		}
 
-		private string _testCarta3;
-		public string TestCarta3
+		private string _carta3;
+		public string Carta3
 		{
 			get
 			{
-				return _testCarta3;
+				return _carta3;
 			}
 			set
 			{
@@ -99,17 +101,17 @@ namespace Poker_Client.ViewModel
 				{
 					ColorCarta = "Black";
 				}
-				_testCarta3 = value;
+				_carta3 = value;
 				NotifyPropertyChanged();
 			}
 		}
 
-		private string _testCarta4;
-		public string TestCarta4
+		private string _carta4;
+		public string Carta4
 		{
 			get
 			{
-				return _testCarta4;
+				return _carta4;
 			}
 			set
 			{
@@ -121,7 +123,7 @@ namespace Poker_Client.ViewModel
 				{
 					ColorCarta = "Black";
 				}
-				_testCarta4 = value;
+				_carta4 = value;
 				NotifyPropertyChanged();
 			}
 		}
@@ -255,11 +257,6 @@ namespace Poker_Client.ViewModel
 
 		public MainWindowViewModel()
 		{
-			TestCarta = Cards.Cover;
-			TestCarta1 = Cards.Cover;
-			TestCarta2 = Cards.Cover;
-			TestCarta3 = Cards.Cover;
-			TestCarta4 = Cards.Cover;
 			BtnName = "Connectar";
 			BtnColor = "Red";
 			Enabled = false;
@@ -286,7 +283,7 @@ namespace Poker_Client.ViewModel
 					ChatList.Add("Desconnectat!"); Console.WriteLine("Desconnectat");
 					BtnName = "Connectar";
 					BtnColor = "Red";
-					TestCarta = Cards.Cover;
+					Carta = Cards.Cover;
 					Enabled = false;
 					Usuaris = new ObservableCollection<string>();
 					return;
@@ -338,7 +335,7 @@ namespace Poker_Client.ViewModel
 							else if (rcvMsg.StartsWith("/showcard "))
 							{
 								rcvMsg = rcvMsg.Substring(10);
-								RebreCarta(rcvMsg);
+								MostrarCarta(rcvMsg);
 							} else if (rcvMsg.StartsWith("/givecard ")){
 								rcvMsg = rcvMsg.Substring(10);
 								RebreCarta(rcvMsg);
@@ -387,13 +384,8 @@ namespace Poker_Client.ViewModel
 
 		private void RebreCarta(string carta)
 		{
-			if (TestCarta == Cards.Cover)
-            {
-				TestCarta = carta;
-			} else if (TestCarta1 == Cards.Cover)
-            {
-				TestCarta1 = carta;
-            }
+			// fer un array de strings per les cartes de l'usuari i amb l'idxCarta accedir a la que toqui
+			// no tenir 5 variables diferents
 		}
 
 
