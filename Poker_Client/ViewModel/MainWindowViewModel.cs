@@ -38,6 +38,95 @@ namespace Poker_Client.ViewModel
 			}
 		}
 
+		private string _testCarta1;
+		public string TestCarta1
+		{
+			get
+			{
+				return _testCarta1;
+			}
+			set
+			{
+				if (Cards.RedCards.Contains(value))
+				{
+					ColorCarta = "Red";
+				}
+				else
+				{
+					ColorCarta = "Black";
+				}
+				_testCarta1 = value;
+				NotifyPropertyChanged();
+			}
+		}
+
+		private string _testCarta2;
+		public string TestCarta2
+		{
+			get
+			{
+				return _testCarta2;
+			}
+			set
+			{
+				if (Cards.RedCards.Contains(value))
+				{
+					ColorCarta = "Red";
+				}
+				else
+				{
+					ColorCarta = "Black";
+				}
+				_testCarta2 = value;
+				NotifyPropertyChanged();
+			}
+		}
+
+		private string _testCarta3;
+		public string TestCarta3
+		{
+			get
+			{
+				return _testCarta3;
+			}
+			set
+			{
+				if (Cards.RedCards.Contains(value))
+				{
+					ColorCarta = "Red";
+				}
+				else
+				{
+					ColorCarta = "Black";
+				}
+				_testCarta3 = value;
+				NotifyPropertyChanged();
+			}
+		}
+
+		private string _testCarta4;
+		public string TestCarta4
+		{
+			get
+			{
+				return _testCarta4;
+			}
+			set
+			{
+				if (Cards.RedCards.Contains(value))
+				{
+					ColorCarta = "Red";
+				}
+				else
+				{
+					ColorCarta = "Black";
+				}
+				_testCarta4 = value;
+				NotifyPropertyChanged();
+			}
+		}
+
+
 		private string _colorCarta = "Black";
 		public string ColorCarta
 		{
@@ -155,9 +244,22 @@ namespace Poker_Client.ViewModel
 
 		#endregion
 
+		/*Coses del Xaml
+		 * 
+		 *     <Window.Resources>
+        <coreView:CommandReference x:Key="sendMssg"
+                                Command="{Binding BtnSend}" />
+    </Window.Resources>
+		 * */
+
+
 		public MainWindowViewModel()
 		{
 			TestCarta = Cards.Cover;
+			TestCarta1 = Cards.Cover;
+			TestCarta2 = Cards.Cover;
+			TestCarta3 = Cards.Cover;
+			TestCarta4 = Cards.Cover;
 			BtnName = "Connectar";
 			BtnColor = "Red";
 			Enabled = false;
@@ -168,25 +270,28 @@ namespace Poker_Client.ViewModel
 
 		public async void ConnectDisconnect(string nom)
 		{
-			if (nom == "Connectar")
+			try
 			{
-				ChatList = new ObservableCollection<string>();
-				BtnName = "Desconnectar";
-				BtnColor = "Green";
-				Enabled = true;
-				await Start();
-			}
-			else
-			{
-				cts.Cancel();
-				ChatList.Add("Desconnectat!"); Console.WriteLine("Desconnectat");
-				BtnName = "Connectar";
-				BtnColor = "Red";
-				TestCarta = Cards.Cover;
-				Enabled = false;
-				Usuaris = new ObservableCollection<string>();
-				return;
-			}
+				if (nom == "Connectar")
+				{
+					ChatList = new ObservableCollection<string>();
+					BtnName = "Desconnectar";
+					BtnColor = "Green";
+					Enabled = true;
+					await Start();
+				}
+				else
+				{
+					cts.Cancel();
+					ChatList.Add("Desconnectat!"); Console.WriteLine("Desconnectat");
+					BtnName = "Connectar";
+					BtnColor = "Red";
+					TestCarta = Cards.Cover;
+					Enabled = false;
+					Usuaris = new ObservableCollection<string>();
+					return;
+				}
+			} catch (Exception e) { }
 		}
 
 		CancellationTokenSource cts;
@@ -234,6 +339,9 @@ namespace Poker_Client.ViewModel
 							{
 								rcvMsg = rcvMsg.Substring(10);
 								RebreCarta(rcvMsg);
+							} else if (rcvMsg.StartsWith("/givecard ")){
+								rcvMsg = rcvMsg.Substring(10);
+								RebreCarta(rcvMsg);
 							}
 							else
 							{
@@ -279,7 +387,13 @@ namespace Poker_Client.ViewModel
 
 		private void RebreCarta(string carta)
 		{
-			TestCarta = carta;
+			if (TestCarta == Cards.Cover)
+            {
+				TestCarta = carta;
+			} else if (TestCarta1 == Cards.Cover)
+            {
+				TestCarta1 = carta;
+            }
 		}
 
 
