@@ -162,7 +162,7 @@ namespace Poker_Client.ViewModel
 			BtnColor = "Red";
 			Enabled = false;
 			//ChatList = new ObservableCollection<string>();
-			BtnConnectCommand = new RelayCommand<string>(ConnectDisconnect); // async () => await Start()
+			BtnConnectCommand = new RelayCommand<string>(ConnectDisconnect);
 			BtnSend = new RelayCommand(async () => await SendMessage());
 		}
 
@@ -202,7 +202,7 @@ namespace Poker_Client.ViewModel
 			string wsUri = string.Format("wss://localhost:44385/api/websocket?nom={0}", nom);
 			await socket.ConnectAsync(new Uri(wsUri), cts.Token);
 			//ChatList.Add(socket.State.ToString());
-
+			Console.WriteLine(socket.State.ToString());
 			await Task.Factory.StartNew(
 				async () =>
 				{
