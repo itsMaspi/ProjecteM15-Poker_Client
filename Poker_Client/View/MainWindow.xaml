@@ -17,10 +17,11 @@
         <Button Content="{Binding BtnName}" HorizontalAlignment="Left" Margin="287,23,0,0" VerticalAlignment="Top" Width="121" Height="28" Command="{Binding BtnConnectCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource self}}"/>
         <Button HorizontalAlignment="Left" Margin="427,24,0,0" VerticalAlignment="Top" Width="27" Height="27" Background="{Binding BtnColor}" IsTabStop="False"/>
         <ListBox HorizontalAlignment="Left" Margin="543,0,0,69" Width="293" ItemsSource="{Binding ChatList}" Height="427" VerticalAlignment="Bottom"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="543,0,0,27" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="293" Text="{Binding Message}" IsEnabled="{Binding Enabled}">
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="543,0,0,27" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="293" Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Enabled}">
             <TextBox.InputBindings>
-                <KeyBinding Command="{Binding BtnSend}" Key="Space" />
+                <KeyBinding Command="{Binding BtnSend}" Key="Return"/>
             </TextBox.InputBindings>
+            
         </TextBox>
         <Button Content="Enviar" Margin="852,0,27,27" VerticalAlignment="Bottom" Height="23" Command="{Binding BtnSend}" IsEnabled="{Binding Enabled}"/>
         <DataGrid Margin="852,73,0,69" ItemsSource="{Binding Usuaris}" AutoGenerateColumns="False" SelectedItem="{Binding UsrSendList}" HorizontalAlignment="Left" Width="113">
