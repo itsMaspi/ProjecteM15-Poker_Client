@@ -320,7 +320,6 @@ namespace Poker_Client.ViewModel
 							
 							if (rcvMsg.StartsWith("/online "))
 							{
-								Console.WriteLine(rcvMsg);
 								rcvMsg = rcvMsg.Substring(8);
 								List<string> users = rcvMsg.Split(',').ToList();
 								App.Current.Dispatcher.Invoke((System.Action)delegate
@@ -336,16 +335,14 @@ namespace Poker_Client.ViewModel
 							{
 								rcvMsg = rcvMsg.Substring(10);
 								MostrarCarta(rcvMsg);
-							} else if (rcvMsg.StartsWith("/givecard ")){
+							}
+							else if (rcvMsg.StartsWith("/givecard ")){
 								rcvMsg = rcvMsg.Substring(10);
 								RebreCarta(rcvMsg);
 							}
 							else
 							{
-								Console.WriteLine(rcvMsg);
 								RebreMissatge(rcvMsg);
-								
-
 							}
 						}
 					}
@@ -386,6 +383,11 @@ namespace Poker_Client.ViewModel
 		{
 			// fer un array de strings per les cartes de l'usuari i amb l'idxCarta accedir a la que toqui
 			// no tenir 5 variables diferents
+		}
+
+		private void MostrarCarta(string carta)
+		{
+			Carta = carta;
 		}
 
 
