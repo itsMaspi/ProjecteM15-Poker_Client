@@ -15,6 +15,11 @@ namespace Poker_Client.ViewModel
 {
 	public class MainWindowViewModel : INotifyPropertyChanged
 	{
+		#region Command prefixes
+		private static readonly string PRE_UsersOnline = "/online";
+		private static readonly string PRE_ShowCard = "/showcard";
+		private static readonly string PRE_SendCard = "/sendcard";
+		#endregion
 		private int idxCarta = 0;
 
 		#region Propietats
@@ -273,13 +278,6 @@ namespace Poker_Client.ViewModel
 
 		#endregion
 
-		/*Coses del Xaml
-		 * 
-		 *     <Window.Resources>
-        <coreView:CommandReference x:Key="sendMssg"
-                                Command="{Binding BtnSend}" />
-    </Window.Resources>
-		 * */
 
 
 		public MainWindowViewModel()
@@ -345,9 +343,9 @@ namespace Poker_Client.ViewModel
 						if (rcvMsg != null)
 						{
 							
-							if (rcvMsg.StartsWith("/online "))
+							if (rcvMsg.StartsWith(PRE_UsersOnline))
 							{
-								rcvMsg = rcvMsg.Substring(8);
+								rcvMsg = rcvMsg.Substring(PRE_UsersOnline.Length);
 								List<string> users = rcvMsg.Split(',').ToList();
 								App.Current.Dispatcher.Invoke((System.Action)delegate
 								{
@@ -358,13 +356,13 @@ namespace Poker_Client.ViewModel
 									}
 								});
 							}
-							else if (rcvMsg.StartsWith("/showcard "))
+							else if (rcvMsg.StartsWith(PRE_ShowCard))
 							{
-								rcvMsg = rcvMsg.Substring(10);
+								rcvMsg = rcvMsg.Substring(PRE_ShowCard.Length);
 								MostrarCarta(rcvMsg);
 							}
-							else if (rcvMsg.StartsWith("/sendcard ")){
-								rcvMsg = rcvMsg.Substring(10);
+							else if (rcvMsg.StartsWith(PRE_SendCard)){
+								rcvMsg = rcvMsg.Substring(PRE_SendCard.Length);
 								RebreCarta(rcvMsg);
 							}
 							else
