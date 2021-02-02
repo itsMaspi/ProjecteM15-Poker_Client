@@ -79,6 +79,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Cards.cs" />
+    <Compile Include="Model\Carta.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

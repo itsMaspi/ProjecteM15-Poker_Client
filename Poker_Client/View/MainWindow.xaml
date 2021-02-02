@@ -28,11 +28,11 @@
                 <DataGridTextColumn Binding="{Binding Mode=OneWay}" ClipboardContentBinding="{x:Null}" Width="111" Header="Usuaris connectats" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="{Binding Carta}" HorizontalAlignment="Left" Margin="31,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding ColorCarta}"/>
-        <Label Content="{Binding Carta1}" HorizontalAlignment="Left" Margin="131,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding ColorCarta}"/>
-        <Label Content="{Binding Carta2}" HorizontalAlignment="Left" Margin="231,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding ColorCarta}"/>
-        <Label Content="{Binding Carta3}" HorizontalAlignment="Left" Margin="331,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding ColorCarta}"/>
-        <Label Content="{Binding Carta4}" HorizontalAlignment="Left" Margin="431,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding ColorCarta}"/>
-        <Button Content="{Binding Carta}" HorizontalAlignment="Left" Margin="212,73,0,0" VerticalAlignment="Top" Width="141" Height="252" Background="White" BorderBrush="White" FontSize="200" Foreground="{Binding ColorCarta}"/>
+        <Label Content="{Binding Carta1.valor}" HorizontalAlignment="Left" Margin="31,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta1.color}" />
+        <Label Content="{Binding Carta2.valor}" HorizontalAlignment="Left" Margin="131,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta2.color}"/>
+        <Label Content="{Binding Carta3.valor}" HorizontalAlignment="Left" Margin="231,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta3.color}"/>
+        <Label Content="{Binding Carta4.valor}" HorizontalAlignment="Left" Margin="331,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta4.color}"/>
+        <Label Content="{Binding Carta5.valor}" HorizontalAlignment="Left" Margin="431,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta5.color}"/>
+        <Button Content="{Binding Carta.valor}" HorizontalAlignment="Left" Margin="212,73,0,0" VerticalAlignment="Top" Width="141" Height="252" Background="White" BorderBrush="White" FontSize="200" Foreground="{Binding Carta.color}"/>
     </Grid>
 </Window>

@@ -18,8 +18,8 @@ namespace Poker_Client.ViewModel
 		private int idxCarta = 0;
 
 		#region Propietats
-		private string _carta;
-		public string Carta
+		private Carta _carta;
+		public Carta Carta
 		{
 			get
 			{
@@ -27,21 +27,21 @@ namespace Poker_Client.ViewModel
 			}
 			set
 			{
-				if (Cards.RedCards.Contains(value))
+				_carta = value;
+				if (Cards.RedCards.Contains(value.valor))
 				{
-					ColorCarta = "Red";
+					_carta.color = "Red";
 				}
 				else
 				{
-					ColorCarta = "Black";
+					_carta.color = "Black";
 				}
-				_carta = value;
 				NotifyPropertyChanged();
 			}
 		}
 
-		private string _carta1;
-		public string Carta1
+		private Carta _carta1;
+		public Carta Carta1
 		{
 			get
 			{
@@ -49,21 +49,22 @@ namespace Poker_Client.ViewModel
 			}
 			set
 			{
-				if (Cards.RedCards.Contains(value))
+				_carta1 = value;
+				if (Cards.RedCards.Contains(value.valor))
 				{
-					ColorCarta = "Red";
+					_carta1.color = "Red";
 				}
 				else
 				{
-					ColorCarta = "Black";
+					_carta1.color = "Black";
 				}
-				_carta1 = value;
+				
 				NotifyPropertyChanged();
 			}
 		}
 
-		private string _carta2;
-		public string Carta2
+		private Carta _carta2;
+		public Carta Carta2
 		{
 			get
 			{
@@ -71,21 +72,22 @@ namespace Poker_Client.ViewModel
 			}
 			set
 			{
-				if (Cards.RedCards.Contains(value))
+				_carta2 = value;
+				if (Cards.RedCards.Contains(value.valor))
 				{
-					ColorCarta = "Red";
+					_carta2.color = "Red";
 				}
 				else
 				{
-					ColorCarta = "Black";
+					_carta2.color = "Black";
 				}
-				_carta2 = value;
+				
 				NotifyPropertyChanged();
 			}
 		}
 
-		private string _carta3;
-		public string Carta3
+		private Carta _carta3;
+		public Carta Carta3
 		{
 			get
 			{
@@ -93,21 +95,22 @@ namespace Poker_Client.ViewModel
 			}
 			set
 			{
-				if (Cards.RedCards.Contains(value))
+				_carta3 = value;
+				if (Cards.RedCards.Contains(value.valor))
 				{
-					ColorCarta = "Red";
+					_carta3.color = "Red";
 				}
 				else
 				{
-					ColorCarta = "Black";
+					_carta3.color = "Black";
 				}
-				_carta3 = value;
+				
 				NotifyPropertyChanged();
 			}
 		}
 
-		private string _carta4;
-		public string Carta4
+		private Carta _carta4;
+		public Carta Carta4
 		{
 			get
 			{
@@ -115,15 +118,39 @@ namespace Poker_Client.ViewModel
 			}
 			set
 			{
-				if (Cards.RedCards.Contains(value))
+				_carta4 = value;
+				if (Cards.RedCards.Contains(value.valor))
 				{
-					ColorCarta = "Red";
+					_carta4.color = "Red";
 				}
 				else
 				{
-					ColorCarta = "Black";
+					_carta4.color = "Black";
 				}
-				_carta4 = value;
+				
+				NotifyPropertyChanged();
+			}
+		}
+
+		private Carta _carta5;
+		public Carta Carta5
+		{
+			get
+			{
+				return _carta5;
+			}
+			set
+			{
+				_carta5 = value;
+				if (Cards.RedCards.Contains(value.valor))
+				{
+					_carta5.color = "Red";
+				}
+				else
+				{
+					_carta5.color = "Black";
+				}
+				
 				NotifyPropertyChanged();
 			}
 		}
@@ -283,7 +310,7 @@ namespace Poker_Client.ViewModel
 					ChatList.Add("Desconnectat!"); Console.WriteLine("Desconnectat");
 					BtnName = "Connectar";
 					BtnColor = "Red";
-					Carta = Cards.Cover;
+					Carta = new Carta(Cards.Cover);
 					Enabled = false;
 					Usuaris = new ObservableCollection<string>();
 					return;
@@ -336,7 +363,7 @@ namespace Poker_Client.ViewModel
 								rcvMsg = rcvMsg.Substring(10);
 								MostrarCarta(rcvMsg);
 							}
-							else if (rcvMsg.StartsWith("/givecard ")){
+							else if (rcvMsg.StartsWith("/sendcard ")){
 								rcvMsg = rcvMsg.Substring(10);
 								RebreCarta(rcvMsg);
 							}
@@ -381,13 +408,33 @@ namespace Poker_Client.ViewModel
 
 		private void RebreCarta(string carta)
 		{
-			// fer un array de strings per les cartes de l'usuari i amb l'idxCarta accedir a la que toqui
-			// no tenir 5 variables diferents
+			Carta c = new Carta(carta);
+			switch (idxCarta++)
+			{
+				case 0:
+					Carta1 = c;
+					break;
+				case 1:
+					Carta2 = c;
+					break;
+				case 2:
+					Carta3 = c;
+					break;
+				case 3:
+					Carta4 = c;
+					break;
+				case 4:
+					Carta5 = c;
+					break;
+				default:
+					idxCarta = 0;
+					break;
+			}
 		}
 
 		private void MostrarCarta(string carta)
 		{
-			Carta = carta;
+			Carta = new Carta(carta);
 		}
 
 
