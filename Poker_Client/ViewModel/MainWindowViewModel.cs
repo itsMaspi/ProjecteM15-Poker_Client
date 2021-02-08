@@ -295,7 +295,11 @@ namespace Poker_Client.ViewModel
 		{
 			try
 			{
-				if (nom == "Connectar")
+				if (Nom == null || Nom.Length == 0)
+				{
+					Nom = "Nom no vàlid!";
+				}
+				else if (nom == "Connectar")
 				{
 					ChatList = new ObservableCollection<string>();
 					BtnName = "Desconnectar";
@@ -328,57 +332,66 @@ namespace Poker_Client.ViewModel
 		public async Task Start()
 		{
 			string nom = Nom;
+			if (nom == null || nom.Length<0)
+            {
+				ChatList.Add("Nom no vàlid!");
+            }
+            else
+            {
+				cts = new CancellationTokenSource();
+				socket = new ClientWebSocket();
+				ChatList.Add("Connectant...");
 
-			cts = new CancellationTokenSource();
-			socket = new ClientWebSocket();
-			ChatList.Add("Connectant...");
-
-			string wsUri = string.Format("wss://localhost:44385/api/websocket?nom={0}", nom);
-			await socket.ConnectAsync(new Uri(wsUri), cts.Token);
-			//ChatList.Add(socket.State.ToString());
-			Console.WriteLine(socket.State.ToString());
-			await Task.Factory.StartNew(
-				async () =>
-				{
-					var rcvBytes = new byte[128];
-					var rcvBuffer = new ArraySegment<byte>(rcvBytes);
-					while (true)
+				string wsUri = string.Format("wss://localhost:44385/api/websocket?nom={0}", nom);
+				await socket.ConnectAsync(new Uri(wsUri), cts.Token);
+				//ChatList.Add(socket.State.ToString());
+				Console.WriteLine(socket.State.ToString());
+				await Task.Factory.StartNew(
+					async () =>
 					{
-						WebSocketReceiveResult rcvResult = await socket.ReceiveAsync(rcvBuffer, cts.Token);
-						byte[] msgBytes = rcvBuffer.Skip(rcvBuffer.Offset).Take(rcvResult.Count).ToArray();
-						string rcvMsg = Encoding.UTF8.GetString(msgBytes);
-						if (rcvMsg != null)
+						var rcvBytes = new byte[128];
+						var rcvBuffer = new ArraySegment<byte>(rcvBytes);
+						while (true)
 						{
-							
-							if (rcvMsg.StartsWith(PRE_UsersOnline))
+							WebSocketReceiveResult rcvResult = await socket.ReceiveAsync(rcvBuffer, cts.Token);
+							byte[] msgBytes = rcvBuffer.Skip(rcvBuffer.Offset).Take(rcvResult.Count).ToArray();
+							string rcvMsg = Encoding.UTF8.GetString(msgBytes);
+							if (rcvMsg != null)
 							{
-								rcvMsg = rcvMsg.Substring(PRE_UsersOnline.Length);
-								List<string> users = rcvMsg.Split(',').ToList();
-								App.Current.Dispatcher.Invoke((System.Action)delegate
+
+								if (rcvMsg.StartsWith(PRE_UsersOnline))
 								{
-									Usuaris = new ObservableCollection<string>();
-									foreach (string user in users)
+									rcvMsg = rcvMsg.Substring(PRE_UsersOnline.Length);
+									List<string> users = rcvMsg.Split(',').ToList();
+									App.Current.Dispatcher.Invoke((System.Action)delegate
 									{
-										Usuaris.Add(user);
-									}
-								});
-							}
-							else if (rcvMsg.StartsWith(PRE_ShowCard))
-							{
-								rcvMsg = rcvMsg.Substring(PRE_ShowCard.Length);
-								MostrarCarta(rcvMsg);
-							}
-							else if (rcvMsg.StartsWith(PRE_SendCard)){
-								rcvMsg = rcvMsg.Substring(PRE_SendCard.Length);
-								RebreCarta(rcvMsg);
-							}
-							else
-							{
-								RebreMissatge(rcvMsg);
+										Usuaris = new ObservableCollection<string>();
+										foreach (string user in users)
+										{
+											Usuaris.Add(user);
+										}
+									});
+								}
+								else if (rcvMsg.StartsWith(PRE_ShowCard))
+								{
+									rcvMsg = rcvMsg.Substring(PRE_ShowCard.Length);
+									MostrarCarta(rcvMsg);
+								}
+								else if (rcvMsg.StartsWith(PRE_SendCard))
+								{
+									rcvMsg = rcvMsg.Substring(PRE_SendCard.Length);
+									RebreCarta(rcvMsg);
+								}
+								else
+								{
+									RebreMissatge(rcvMsg);
+								}
 							}
 						}
-					}
-				}, cts.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+					}, cts.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+			}
+
+			
 		}
 
 		public async Task SendMessage()
