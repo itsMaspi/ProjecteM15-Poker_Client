@@ -19,10 +19,29 @@ namespace Poker_Client.ViewModel
 		private static readonly string PRE_UsersOnline = "/online";
 		private static readonly string PRE_ShowCard = "/showcard";
 		private static readonly string PRE_SendCard = "/sendcard";
+		private static readonly string PRE_ResetGame = "/reset";
+		private static readonly string PRE_StartGame = "Game started :)";
 		#endregion
 		private int idxCarta = 0;
 
+
+
+
 		#region Propietats
+		private bool _isNotFull;
+		public bool isNotFull
+        {
+			get
+            {
+				return _isNotFull;
+            } set
+            {
+				_isNotFull = value;
+				NotifyPropertyChanged();
+            }
+			
+        }
+
 		private Carta _carta;
 		public Carta Carta
 		{
@@ -275,6 +294,8 @@ namespace Poker_Client.ViewModel
 
 		public RelayCommand<string> BtnConnectCommand { get; set; }
 		public RelayCommand BtnSend { get; set; }
+		public RelayCommand BtnGetCard { get; set; }
+
 
 		#endregion
 
@@ -289,6 +310,8 @@ namespace Poker_Client.ViewModel
 			//ChatList = new ObservableCollection<string>();
 			BtnConnectCommand = new RelayCommand<string>(ConnectDisconnect);
 			BtnSend = new RelayCommand(async () => await SendMessage());
+			BtnGetCard = new RelayCommand(GetCard);
+
 		}
 
 		public async void ConnectDisconnect(string nom)
@@ -306,6 +329,7 @@ namespace Poker_Client.ViewModel
 					BtnColor = "Green";
 					Enabled = true;
 					await Start();
+
 				}
 				else
 				{
@@ -382,6 +406,20 @@ namespace Poker_Client.ViewModel
 									rcvMsg = rcvMsg.Substring(PRE_SendCard.Length);
 									RebreCarta(rcvMsg);
 								}
+								else if (rcvMsg.StartsWith(PRE_ResetGame)) {
+									Carta = new Carta(Cards.Cover);
+									Carta1 = new Carta("");
+									Carta2 = new Carta("");
+									Carta3 = new Carta("");
+									Carta4 = new Carta("");
+									Carta5 = new Carta("");
+									idxCarta = 0;
+								}
+								else if (rcvMsg.StartsWith(PRE_StartGame))
+                                {
+									isNotFull = true;
+
+								}
 								else
 								{
 									RebreMissatge(rcvMsg);
@@ -443,6 +481,7 @@ namespace Poker_Client.ViewModel
 					break;
 				case 4:
 					Carta5 = c;
+					isNotFull = false;
 					break;
 				default:
 					idxCarta = 0;
@@ -463,6 +502,16 @@ namespace Poker_Client.ViewModel
 			{
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+
+		public async void GetCard ()
+		{
+			try
+			{
+				Message = "/card";
+				BtnSend.Execute(Message);
+			}
+			catch (Exception e) { }
 		}
 	}
 }
