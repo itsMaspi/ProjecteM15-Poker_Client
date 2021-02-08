@@ -285,6 +285,7 @@ namespace Poker_Client.ViewModel
 			BtnName = "Connectar";
 			BtnColor = "Red";
 			Enabled = false;
+			Carta = new Carta(Cards.Cover);
 			//ChatList = new ObservableCollection<string>();
 			BtnConnectCommand = new RelayCommand<string>(ConnectDisconnect);
 			BtnSend = new RelayCommand(async () => await SendMessage());
@@ -309,6 +310,12 @@ namespace Poker_Client.ViewModel
 					BtnName = "Connectar";
 					BtnColor = "Red";
 					Carta = new Carta(Cards.Cover);
+					Carta1 = new Carta(""); 
+					Carta2 = new Carta(""); 
+					Carta3 = new Carta(""); 
+					Carta4 = new Carta(""); 
+					Carta5 = new Carta("");
+					idxCarta = 0;
 					Enabled = false;
 					Usuaris = new ObservableCollection<string>();
 					return;

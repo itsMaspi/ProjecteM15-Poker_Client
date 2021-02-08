@@ -67,7 +67,6 @@ C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\bin\Deb
 C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.Extras.xml
 C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csprojAssemblyReference.cache
 C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\View\MainWindow.g.cs
 C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\App.g.cs
 C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\GeneratedInternalTypeHelper.g.cs
