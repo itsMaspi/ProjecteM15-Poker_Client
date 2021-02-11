@@ -21,6 +21,7 @@ namespace Poker_Client.ViewModel
 		private static readonly string PRE_SendCard = "/sendcard";
 		private static readonly string PRE_ResetGame = "/reset";
 		private static readonly string PRE_StartGame = "Game started :)";
+		private static readonly string PRE_CloseConnection = "/youshallnotpass";
 		#endregion
 		private int idxCarta = 0;
 
@@ -419,6 +420,13 @@ namespace Poker_Client.ViewModel
                                 {
 									isNotFull = true;
 
+								}
+								else if (rcvMsg.StartsWith(PRE_CloseConnection))
+								{
+									App.Current.Dispatcher.Invoke((System.Action)delegate
+									{
+										ConnectDisconnect("Disconnect");
+									});
 								}
 								else
 								{
