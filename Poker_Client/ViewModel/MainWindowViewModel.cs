@@ -388,6 +388,7 @@ namespace Poker_Client.ViewModel
 								{
 									rcvMsg = rcvMsg.Substring(PRE_UsersOnline.Length);
 									List<string> users = rcvMsg.Split(',').ToList();
+									users.Sort();
 									App.Current.Dispatcher.Invoke((System.Action)delegate
 									{
 										Usuaris = new ObservableCollection<string>();
