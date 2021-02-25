@@ -80,6 +80,7 @@ C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Deb
 C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csproj.CopyComplete
 C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.exe
 C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.pdb
+C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csprojAssemblyReference.cache
 C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\Poker_Client.exe.config
 C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\Poker_Client.exe
 C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\bin\Debug\Poker_Client.pdb
@@ -108,4 +109,3 @@ C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Po
 C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csproj.CopyComplete
 C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.exe
 C:\Users\Sergi\Documents\Visual Studio 2019\Projects\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.pdb
-C:\Users\Bernat M\source\repos\M15\ProjecteM15-Poker_Client\Poker_Client\obj\Debug\Poker_Client.csprojAssemblyReference.cache
