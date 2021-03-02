@@ -11,6 +11,8 @@ namespace Poker_Client.Model
 		public string valor { get; set; }
 		public string color { get; set; }
 
+
+
 		public Carta()
 		{
 
@@ -19,5 +21,19 @@ namespace Poker_Client.Model
 		{
 			this.valor = valor;
 		}
+
+		public Carta (Card card)
+        {
+			this.valor = card.text;
+			if (card.pal.Equals("Hearts") || card.pal.Equals("Diamonds"))
+            {
+				this.color = "Red";
+            } else
+            {
+				this.color = "Black";
+			}
+		}
+
+
 	}
 }

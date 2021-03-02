@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Newtonsoft.Json;
 using Poker_Client.Model;
 using System;
 using System.Collections.Generic;
@@ -345,6 +346,7 @@ namespace Poker_Client.ViewModel
 					Carta4 = new Carta(""); 
 					Carta5 = new Carta("");
 					idxCarta = 0;
+					isNotFull = false;
 					Enabled = false;
 					Usuaris = new ObservableCollection<string>();
 					return;
@@ -400,13 +402,14 @@ namespace Poker_Client.ViewModel
 								}
 								else if (rcvMsg.StartsWith(PRE_ShowCard))
 								{
-									rcvMsg = rcvMsg.Substring(PRE_ShowCard.Length);
-									MostrarCarta(rcvMsg);
+									
+									Card card = (Card)JsonConvert.DeserializeObject(rcvMsg.Substring(PRE_ShowCard.Length), typeof(Card));
+									MostrarCarta(card);
 								}
 								else if (rcvMsg.StartsWith(PRE_SendCard))
 								{
-									rcvMsg = rcvMsg.Substring(PRE_SendCard.Length);
-									RebreCarta(rcvMsg);
+									Card card = (Card)JsonConvert.DeserializeObject(rcvMsg.Substring(PRE_SendCard.Length), typeof(Card));
+									RebreCarta(card);
 								}
 								else if (rcvMsg.StartsWith(PRE_ResetGame)) {
 									Carta = new Carta(Cards.Cover);
@@ -416,6 +419,7 @@ namespace Poker_Client.ViewModel
 									Carta4 = new Carta("");
 									Carta5 = new Carta("");
 									idxCarta = 0;
+									isNotFull = false;
 								}
 								else if (rcvMsg.StartsWith(PRE_StartGame))
                                 {
@@ -471,7 +475,7 @@ namespace Poker_Client.ViewModel
 			});
 		}
 
-		private void RebreCarta(string carta)
+		private void RebreCarta(Card carta)
 		{
 			Carta c = new Carta(carta);
 			switch (idxCarta++)
@@ -498,7 +502,7 @@ namespace Poker_Client.ViewModel
 			}
 		}
 
-		private void MostrarCarta(string carta)
+		private void MostrarCarta(Card carta)
 		{
 			Carta = new Carta(carta);
 		}

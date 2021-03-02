@@ -8,21 +8,8 @@ namespace Poker_Client.Model
 {
 	public class Cards
 	{
-		public static string Cover       = "\U0001F0A0";
-
-		public static string AceSpades   = "\U0001F0A1";
-		public static string TwoSpades   = "\U0001F0A2";
-		public static string ThreeSpades = "\U0001F0A3";
-		public static string FourSpades  = "\U0001F0A4";
-		public static string FiveSpades  = "\U0001F0A5";
-		public static string SixSpades   = "\U0001F0A6";
-		public static string SevenSpades = "\U0001F0A7";
-		public static string EightSpades = "\U0001F0A8";
-		public static string NineSpades  = "\U0001F0A9";
-		public static string TenSpades   = "\U0001F0AA";
-		public static string JackSpades  = "\U0001F0AB";
-		public static string QueenSpades = "\U0001F0AD";
-		public static string KingSpades  = "\U0001F0AE";
+        #region cards
+        public static string Cover       = "\U0001F0A0";
 
 		public static string AceHearts   = "\U0001F0B1";
 		public static string TwoHearts   = "\U0001F0B2";
@@ -51,22 +38,9 @@ namespace Poker_Client.Model
 		public static string JackDiamonds  = "\U0001F0CB";
 		public static string QueenDiamonds = "\U0001F0CD";
 		public static string KingDiamonds  = "\U0001F0CE";
+        #endregion
 
-		public static string AceClubs   = "\U0001F0D1";
-		public static string TwoClubs   = "\U0001F0D2";
-		public static string ThreeClubs = "\U0001F0D3";
-		public static string FourClubs  = "\U0001F0D4";
-		public static string FiveClubs  = "\U0001F0D5";
-		public static string SixClubs   = "\U0001F0D6";
-		public static string SevenClubs = "\U0001F0D7";
-		public static string EightClubs = "\U0001F0D8";
-		public static string NineClubs  = "\U0001F0D9";
-		public static string TenClubs   = "\U0001F0DA";
-		public static string JackClubs  = "\U0001F0DB";
-		public static string QueenClubs = "\U0001F0DD";
-		public static string KingClubs  = "\U0001F0DE";
-
-		public static string[] RedCards = { AceDiamonds,   AceHearts,
+        public static string[] RedCards = { AceDiamonds,   AceHearts,
 											TwoDiamonds,   TwoHearts,
 											ThreeDiamonds, ThreeHearts,
 											FourDiamonds,  FourHearts,
