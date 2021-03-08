@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Poker_Client.ViewModel
 {
@@ -296,6 +297,9 @@ namespace Poker_Client.ViewModel
 
 		public RelayCommand<string> BtnConnectCommand { get; set; }
 		public RelayCommand BtnSend { get; set; }
+
+		public RelayCommand BtnStart { get; set; }
+
 		public RelayCommand BtnGetCard { get; set; }
 
 
@@ -312,6 +316,7 @@ namespace Poker_Client.ViewModel
 			//ChatList = new ObservableCollection<string>();
 			BtnConnectCommand = new RelayCommand<string>(ConnectDisconnect);
 			BtnSend = new RelayCommand(async () => await SendMessage());
+			BtnStart = new RelayCommand(PlayerStart);
 			BtnGetCard = new RelayCommand(GetCard);
 
 		}
@@ -522,6 +527,16 @@ namespace Poker_Client.ViewModel
 			try
 			{
 				Message = "/card";
+				BtnSend.Execute(Message);
+			}
+			catch (Exception e) { }
+		}
+
+		public async void PlayerStart()
+		{
+			try
+			{
+				Message = "/start";
 				BtnSend.Execute(Message);
 			}
 			catch (Exception e) { }

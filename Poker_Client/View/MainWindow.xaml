@@ -16,7 +16,7 @@
         <TextBox HorizontalAlignment="Left" Height="27" Margin="87,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Text="{Binding Nom}"/>
         <Button Content="{Binding BtnName}" HorizontalAlignment="Left" Margin="287,23,0,0" VerticalAlignment="Top" Width="121" Height="28" Command="{Binding BtnConnectCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource self}}"/>
         <Button HorizontalAlignment="Left" Margin="427,24,0,0" VerticalAlignment="Top" Width="27" Height="27" Background="{Binding BtnColor}" IsTabStop="False"/>
-        <ListBox Margin="0,74,157.6,69.4" ItemsSource="{Binding ChatList}" HorizontalAlignment="Right" Width="293"/>
+        <ListBox Margin="0,74,157.6,69.4" ItemsSource="{Binding ChatList}"  HorizontalAlignment="Right" Width="293"/>
         <TextBox Height="23" Margin="0,0,157.6,27.4" TextWrapping="Wrap" VerticalAlignment="Bottom" Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Enabled}" HorizontalAlignment="Right" Width="293">
             <TextBox.InputBindings>
                 <KeyBinding Command="{Binding BtnSend}" Key="Return"/>
@@ -24,7 +24,7 @@
 
         </TextBox>
         <Button Content="Enviar" Margin="0,0,26.6,27.4" Command="{Binding BtnSend}" IsEnabled="{Binding Enabled}" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="115"/>
-        <DataGrid Margin="0,73,28.6,69.4" ItemsSource="{Binding Usuaris}" AutoGenerateColumns="False" SelectedItem="{Binding UsrSendList}" HorizontalAlignment="Right" Width="113">
+        <DataGrid Margin="0,73,27,97" ItemsSource="{Binding Usuaris}" AutoGenerateColumns="False" SelectedItem="{Binding UsrSendList}" HorizontalAlignment="Right" Width="115">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Mode=OneWay}" ClipboardContentBinding="{x:Null}" Width="111" Header="Usuaris connectats" IsReadOnly="True"/>
             </DataGrid.Columns>
@@ -34,6 +34,7 @@
         <Label Content="{Binding Carta3.valor}" HorizontalAlignment="Left" Margin="231,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta3.color}"/>
         <Label Content="{Binding Carta4.valor}" HorizontalAlignment="Left" Margin="331,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta4.color}"/>
         <Label Content="{Binding Carta5.valor}" HorizontalAlignment="Left" Margin="431,330,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta5.color}"/>
-        <Button Content="{Binding Carta.valor}" IsEnabled="{Binding isNotFull}" HorizontalAlignment="Left" Margin="212,73,0,0" VerticalAlignment="Top" Width="141" Height="252" Background="White" BorderBrush="White" FontSize="200" Command="{Binding BtnGetCard}" Foreground="{Binding Carta.color}"/>
+        <Button Content="{Binding Carta.valor}" IsEnabled="{Binding isNotFull}" HorizontalAlignment="Left" Margin="212,86,0,0" VerticalAlignment="Top" Width="170" Height="258" Background="Transparent" BorderBrush="White" FontSize="200" Command="{Binding BtnGetCard}" Foreground="{Binding Carta.color}" Style="{DynamicResource ButtonStyle1}" />
+        <Button Content="Start" Margin="0,0,27,69" Command="{Binding BtnStart}" IsEnabled="{Binding Enabled}" BorderBrush="{Binding BtnColor}" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="115"/>
     </Grid>
 </Window>

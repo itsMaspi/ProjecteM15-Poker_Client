@@ -32,6 +32,7 @@ namespace Poker_Client.Model
             {
 				this.color = "Black";
 			}
+
 		}
 
 
