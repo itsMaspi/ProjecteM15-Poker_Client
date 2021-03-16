@@ -31,6 +31,22 @@ namespace Poker_Client.ViewModel
 
 
 		#region Propietats
+
+		private string _serverUrl;
+
+		public string ServerUrl
+		{
+			get
+			{
+				return _serverUrl;
+			}
+			set
+			{
+				_serverUrl = value;
+				NotifyPropertyChanged();
+			}
+		}
+
 		private bool _isNotFull;
 		public bool isNotFull
         {
@@ -309,6 +325,7 @@ namespace Poker_Client.ViewModel
 
 		public MainWindowViewModel()
 		{
+			ServerUrl = "localhost:44385";
 			BtnName = "Connectar";
 			BtnColor = "Red";
 			Enabled = false;
@@ -379,7 +396,7 @@ namespace Poker_Client.ViewModel
 				socket = new ClientWebSocket();
 				ChatList.Add("Connectant...");
 
-				string wsUri = string.Format("wss://localhost:44385/api/websocket?nom={0}", nom);
+				string wsUri = string.Format("wss://{0}/api/websocket?nom={1}", ServerUrl, nom);
 				await socket.ConnectAsync(new Uri(wsUri), cts.Token);
 				//ChatList.Add(socket.State.ToString());
 				Console.WriteLine(socket.State.ToString());
