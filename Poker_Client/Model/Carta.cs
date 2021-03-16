@@ -27,7 +27,7 @@ namespace Poker_Client.Model
 			this.valor = card.text;
 			if (card.pal.Equals("Hearts") || card.pal.Equals("Diamonds"))
             {
-				this.color = "Red";
+				this.color = "#66d9ff";
             } else
             {
 				this.color = "Black";

@@ -15,11 +15,11 @@
         <Grid.Background>
             <ImageBrush ImageSource="poker-table-texture.jpg" Stretch="None" TileMode="Tile" ViewportUnits="Absolute" Viewport="0,0,450,300"/>
         </Grid.Background>
-        <Label Content="Nom:" HorizontalAlignment="Left" Margin="43,24,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="87,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Text="{Binding Nom}"/>
-        <Button Content="{Binding BtnName}" HorizontalAlignment="Left" Margin="287,23,0,0" VerticalAlignment="Top" Width="109" Height="28" Command="{Binding BtnConnectCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource self}}"/>
-        <Button HorizontalAlignment="Left" Margin="413,24,0,0" VerticalAlignment="Top" Width="27" Height="27" Background="{Binding BtnColor}" IsTabStop="False"/>
-        <ListBox Margin="0,74,158,69" ItemsSource="{Binding ChatList}"  HorizontalAlignment="Right" Width="281">
+        <Label Content="Nom:" HorizontalAlignment="Left" Margin="30,31,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="74,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Text="{Binding Nom}"/>
+        <Button Content="{Binding BtnName}" HorizontalAlignment="Left" Margin="614,31,0,0" VerticalAlignment="Top" Width="109" Height="26" Command="{Binding BtnConnectCommand}" CommandParameter="{Binding Content, RelativeSource={RelativeSource self}}"/>
+        <Button HorizontalAlignment="Left" Margin="740,31,0,0" VerticalAlignment="Top" Width="27" Height="26" Background="{Binding BtnColor}" IsTabStop="False"/>
+        <ListBox Margin="614,74,158,75" ItemsSource="{Binding ChatList}">
             <ListBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF1E1C2" Offset="0.506"/>
@@ -28,14 +28,14 @@
                 </LinearGradientBrush>
             </ListBox.Background>
         </ListBox>
-        <TextBox Height="23" Margin="0,0,158,27" TextWrapping="Wrap" VerticalAlignment="Bottom" Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Enabled}" HorizontalAlignment="Right" Width="281" Background="#CCF8C7F9">
+        <TextBox Height="31" Margin="614,0,158,27" TextWrapping="Wrap" VerticalAlignment="Bottom" Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Enabled}" Background="#CCF8C7F9">
             <TextBox.InputBindings>
                 <KeyBinding Command="{Binding BtnSend}" Key="Return"/>
             </TextBox.InputBindings>
 
         </TextBox>
-        <Button Content="Enviar" Margin="0,0,26.6,27.4" Command="{Binding BtnSend}" IsEnabled="{Binding Enabled}" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="115" Background="#CCF9A0FB"/>
-        <DataGrid Margin="0,73,27,69" ItemsSource="{Binding Usuaris}" AutoGenerateColumns="False" SelectedItem="{Binding UsrSendList}" HorizontalAlignment="Right" Width="115">
+        <Button Content="Enviar" Margin="0,0,27,27" Command="{Binding BtnSend}" IsEnabled="{Binding Enabled}" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="115" Background="#CCF9A0FB"/>
+        <DataGrid Margin="0,73,27,75" ItemsSource="{Binding Usuaris}" AutoGenerateColumns="False" SelectedItem="{Binding UsrSendList}" HorizontalAlignment="Right" Width="115">
             <DataGrid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF1E1C2" Offset="0.439"/>
@@ -47,8 +47,8 @@
                 <DataGridTextColumn Binding="{Binding Mode=OneWay}" ClipboardContentBinding="{x:Null}" Width="111" Header="Usuaris connectats" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Rectangle Fill="#33F4F4F5" HorizontalAlignment="Left" Height="507" Margin="30,74,0,0" Stroke="#33000000" VerticalAlignment="Top" Width="532"/>
-        <Label Content="{Binding Carta1.valor}" HorizontalAlignment="Left" Margin="53,395,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta1.color}" BorderBrush="#FF060606" BorderThickness="1" Background="#663E7A54" RenderTransformOrigin="0.5,0.5" >
+        <Rectangle Fill="#33F4F4F5" HorizontalAlignment="Left" Height="507" Margin="30,74,0,0" Stroke="#33000000" VerticalAlignment="Top" Width="548"/>
+        <Label Content="  " HorizontalAlignment="Left" Margin="46,421,0,0" VerticalAlignment="Top" FontSize="130" Height="144" BorderBrush="#FF060606" BorderThickness="1" Background="#663E7A54" RenderTransformOrigin="0.5,0.5" Width="96" >
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -58,7 +58,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="{Binding Carta2.valor}" HorizontalAlignment="Left" Margin="152,374,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta2.color}" BorderThickness="1" BorderBrush="Black" Background="#663E7A54" RenderTransformOrigin="0.5,0.5">
+        <Label Content="  " HorizontalAlignment="Left" Margin="152,394,0,0" VerticalAlignment="Top" FontSize="130" Height="144"  BorderThickness="1" BorderBrush="Black" Background="#663E7A54" RenderTransformOrigin="0.5,0.5" Width="96">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -68,8 +68,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="{Binding Carta3.valor}" HorizontalAlignment="Left" Margin="251,363,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta3.color}" BorderThickness="1" BorderBrush="Black" Background="#663E7A54"/>
-        <Label Content="{Binding Carta4.valor}" HorizontalAlignment="Left" Margin="350,374,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta4.color}" BorderThickness="1" BorderBrush="Black" Background="#663E7A54" RenderTransformOrigin="0.5,0.5" Padding="5" VerticalContentAlignment="Center">
+        <Label Content="  " HorizontalAlignment="Left" Margin="257,376,0,0" VerticalAlignment="Top" FontSize="130" Height="144"  BorderThickness="1" BorderBrush="Black" Background="#663E7A54" Width="96"/>
+        <Label Content="  " HorizontalAlignment="Left" Margin="359,394,0,0" VerticalAlignment="Top" FontSize="130" Height="144"  BorderThickness="1" BorderBrush="Black" Background="#663E7A54" RenderTransformOrigin="0.5,0.5" Padding="5" VerticalContentAlignment="Center" Width="96">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -79,7 +79,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="{Binding Carta5.valor}" HorizontalAlignment="Left" Margin="449,395,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta5.color}" BorderThickness="1" BorderBrush="Black" Background="#663E7A54" RenderTransformOrigin="0.5,0.5">
+        <Label Content="  " HorizontalAlignment="Left" Margin="465,415,0,0" VerticalAlignment="Top" FontSize="130" Height="144" BorderThickness="1" BorderBrush="Black" Background="#663E7A54" RenderTransformOrigin="0.5,0.5" Width="96">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -89,9 +89,50 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="{Binding Carta.valor}" IsEnabled="{Binding isNotFull}" HorizontalAlignment="Left" Margin="209,90,0,0" VerticalAlignment="Top" Width="170" Height="252" Background="Transparent" BorderBrush="Transparent" FontSize="200" Command="{Binding BtnGetCard}" Foreground="{Binding Carta.color}" Style="{DynamicResource ButtonStyle1}" />
-        <Button Content="Start" Margin="0,0,891,474" Command="{Binding BtnStart}" IsEnabled="{Binding Enabled}" BorderBrush="{Binding BtnColor}" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" Background="#FF74F966"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="685,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Text="{Binding ServerUrl}"/>
-        <Label Content="Servidor:" HorizontalAlignment="Left" Margin="614,23,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button Content="{Binding Carta.valor}" IsEnabled="{Binding isNotFull}" HorizontalAlignment="Left" Margin="224,93,0,0" VerticalAlignment="Top" Width="170" Height="252" Background="Transparent" BorderBrush="Transparent" FontSize="200" Command="{Binding BtnGetCard}" Foreground="{Binding Carta.color}" Style="{DynamicResource ButtonStyle1}" />
+        <Button Content="Start" Margin="62,108,0,0" Command="{Binding BtnStart}" IsEnabled="{Binding Enabled}" BorderBrush="{Binding BtnColor}" Background="#FF74F966" HorizontalAlignment="Left" Width="100" Height="26" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="383,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Text="{Binding ServerUrl}"/>
+        <Label Content="Servidor:" HorizontalAlignment="Left" Margin="305,31,0,0" VerticalAlignment="Top" Foreground="White" Width="58"/>
+        <Label Content="{Binding Carta1.valor}" HorizontalAlignment="Left" Margin="44,396,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta1.color}" RenderTransformOrigin="0.5,0.5" >
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-9"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="{Binding Carta2.valor}" HorizontalAlignment="Left" Margin="151,368,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta2.color}" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="{Binding Carta3.valor}" HorizontalAlignment="Left" Margin="257,350,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta3.color}" />
+        <Label Content="{Binding Carta4.valor}" HorizontalAlignment="Left" Margin="360,368,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta4.color}" RenderTransformOrigin="0.5,0.5" Padding="5" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="3"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="{Binding Carta5.valor}" HorizontalAlignment="Left" Margin="467,388,0,0" VerticalAlignment="Top" FontSize="130" Height="170" Foreground="{Binding Carta5.color}" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="9"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Window>
